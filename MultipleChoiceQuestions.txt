@@ -15,4 +15,5 @@
 [“How many wheels does a car have?”, “4”, “1”, “3”, “5”]
 [“Which is not in Europe?”, “Chicago”, “Spain”, “Pompeii”, “”Paris]
 [“Who lived longest ago?”, “Queen Elizabeth”, “George Washington”, “Tom Hanks”, “Paul McCartney”]
-[“Which tends to be the coldest?”, “Arctic tundra”, “Rainforest”, “Desert”, “Beach”] [“Which is not a fruit?”, “Potato”, “Apple”, “Orange”, “Banana”] [“How many fingers does each person have per hand?”, “5”, “1”, “4”, “10”] 
+[“Which tends to be the coldest?”, “Arctic tundra”, “Rainforest”, “Desert”, “Beach”] [“Which is not a fruit?”, “Potato”, “Apple”, “Orange”, “Banana”] [“How many fingers does each person have per hand?”, “5”, “1”, “4”, “10”]
+ 
