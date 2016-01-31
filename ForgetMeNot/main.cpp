@@ -3,6 +3,8 @@
 #include <iostream>
 
 #include "Game.h"
+#include "Loader.h"
+#include "MainMenu.h"
 
 std::string stage = "INIT"; //different stages of program controlled by this variable
 
@@ -11,68 +13,31 @@ int mouseY = 0;
 
 bool mouseDown;
 
-sf::Texture logo_large_texture;
-sf::Texture logo_small_texture;
-
-sf::Font regular_font;
-sf::Font bold_font;
-
-sf::Sprite logo_large;
-
 int framesDisplayed = 0; //frame counter
 
 sf::RenderWindow window(sf::VideoMode(1000, 800), "Forget-Me-Not", sf::Style::Close); //create window, sf::Style::Close means that the window can't be resized
 
-int loadResources() {
-	if (!logo_large_texture.loadFromFile("logo_large.png")) { //load texture
-		return -1;
-	}
-	else { //init sprite to work with
-		logo_large.setTexture(logo_large_texture);
-		logo_large.setScale(1, 1);
-		logo_large.setPosition(sf::Vector2f(95, 0));
-	}
-	if (!logo_small_texture.loadFromFile("logo_small.png")) {
-		return -1;
-	}
-	if (!regular_font.loadFromFile("regular_font.ttf")) {
-		return -1;
-	}
-	if (!bold_font.loadFromFile("bold_font.ttf")) {
-		return -1;
-	}
-	return 0;
-}
+Loader loader;
+MainMenu mainMenu;
 
 void createFrame() {
 	if (stage == "INIT") { //loading stage
-		if (loadResources() != 0) {
+		if (loader.loadResources() != 0) {
 			MessageBox(NULL, L"Forget-Me-Not was not installed correctly, as files are missing.", L"Error.", NULL);
 			exit(0);
 		}
 		else {
+			mainMenu.init(&window, loader);
 			stage = "MENU";
 		}
 	}
 	else if (stage == "MENU") { //menu stage
-		Game game(&window);
+		mainMenu.getInput(mouseX, mouseY, mouseDown, framesDisplayed);
 		if (framesDisplayed < 340) { //flower start animation
-			framesDisplayed = 340; //get rid of this, (it skips flower)
-			int opacity = 0;
-			if (framesDisplayed > 213) {
-				opacity = (framesDisplayed - 213) * -2 + 255;
-			}
-			else if (framesDisplayed > 93) {
-				opacity = 255;
-			}
-			else if (framesDisplayed > 30) {
-				opacity = (framesDisplayed - 30) * 4;
-			}
-			logo_large.setColor(sf::Color(255, 255, 255, opacity));
-			window.draw(logo_large);
+			mainMenu.displayFlower();
 		}
 		else { //actual menu
-			int menutitleopacity = 0;
+		/*	int menutitleopacity = 0;
 			int menusubtitleopacity = 0;
 
 			if (framesDisplayed > 435) {
@@ -135,7 +100,7 @@ void createFrame() {
 
 			
 
-			//do buttons and shit
+			//do buttons and shit*/
 		}
 	}
 }
