@@ -1,0 +1,30 @@
+To-Do List
+
+Saving and Loading
+Graphing Results
+QuestionDisplay Class
+Reaction Time Question Class
+
+
+
+Division of Work:
+
+
+Jonathan
+	•	C# and ugly stuff
+	•	graphing
+	•	saves/opening save files
+	•	Make Basic GUI (SFML) and question asker
+	•	when to notify caretaker
+Teddy
+	•	Designing game and reaction time
+	•	Free-writing, Open-ended
+
+Michael
+	•	Preferences
+	•	Working Memory, Cognitive Questions
+	•	Grading Algorithm
+
+Jake
+	•	designing subjective questions
+	•	typing and getting speed of typing (smart, make sure to start recording from when blank (like if blank reset time)) 
