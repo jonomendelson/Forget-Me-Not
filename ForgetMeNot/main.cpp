@@ -7,13 +7,12 @@
 #include "Loader.h"
 #include "MainMenu.h"
 #include "Textbox.h"
+#include "MultChoice.h"
 
 std::string stage = "INIT"; //different stages of program controlled by this variable
 
 int mouseX = 0;
 int mouseY = 0;
-
-Textbox text;
 
 bool mouseDown;
 
@@ -23,6 +22,11 @@ sf::RenderWindow window(sf::VideoMode(1000, 800), "Forget-Me-Not", sf::Style::Cl
 
 Loader loader;
 MainMenu mainMenu;
+MultChoice multChoice;
+
+void processKeystroke(char keystroke) {
+	std::cout << "Processing " + keystroke;
+}
 
 void createFrame() {
 	if (stage == "INIT") { //loading stage
@@ -32,11 +36,12 @@ void createFrame() {
 		}
 		else {
 			mainMenu.init(&window, loader);
+			multChoice.init(&window, loader, "What is 5*5?", "25", "15", "10", "5");
 			stage = "MENU";
 		}
 	}
 	else if (stage == "MENU") { //menu stage
-		mainMenu.getInput(mouseX, mouseY, mouseDown, framesDisplayed);
+		/*mainMenu.getInput(mouseX, mouseY, mouseDown, framesDisplayed);
 
 		if (framesDisplayed == 30) { //triggers starting music
 			loader.starting_music.play();
@@ -47,17 +52,10 @@ void createFrame() {
 			mainMenu.displayFlower();
 		}
 		else{ //actual menu
-			mainMenu.displayTitles();
-			
-
-			if (framesDisplayed < 575 && framesDisplayed > 490) {
-				int opacity = (framesDisplayed - 490) * 3;
-				mainMenu.displayFirstButtons(opacity);
-			}
-			else if(framesDisplayed > 574){
-				mainMenu.displayFirstButtons(255);
-			}
-		}
+			mainMenu.display();
+		}*/
+		multChoice.display();
+		multChoice.getInput(mouseX, mouseY, mouseDown, framesDisplayed);
 	}
 }
 
@@ -76,8 +74,7 @@ int main() {
 				mouseY = sf::Mouse::getPosition(window).y;
 			}
 			if (event.type == sf::Event::TextEntered) {
-				
-				std::cout << static_cast<char>(event.text.unicode);
+				processKeystroke(static_cast<char>(event.text.unicode));
 			}
 		}
 
@@ -86,7 +83,7 @@ int main() {
 		sf::Time elapsedSinceLastFrame = frameTimer.getElapsedTime();
 
 		if (elapsedSinceLastFrame.asMilliseconds() > 16) { //60 fps
-			window.clear(sf::Color::White);
+			window.clear(sf::Color::White);	
 			createFrame();
 			window.display();
 

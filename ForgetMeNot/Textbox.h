@@ -4,6 +4,8 @@
 #include <SFML\Window.hpp>
 #include <SFML\Audio.hpp>
 
+#include "Loader.h"
+
 class Textbox {
 	sf::RenderWindow * window;
 	int mouseX = 0;
@@ -16,17 +18,20 @@ class Textbox {
 	int xSize = 500;
 	int ySize = 50;
 
+	Loader loader;
+
 	std::string containedText = "";
 public:
 	bool isSelected = false;
 
-	void init(sf::RenderWindow *, int, int);
+	void init(sf::RenderWindow *, Loader, int, int);
 	void getInput(int, int, bool, int);
 	void display();
 	void recieveChar(char);
 };
 
-void Textbox::init(sf::RenderWindow * actualWindow, int x, int y) {
+void Textbox::init(sf::RenderWindow * actualWindow, Loader load, int x, int y) {
+	loader = load;
 	window = actualWindow;
 	xPos = x;
 	yPos = y;
@@ -46,6 +51,14 @@ void Textbox::display() {
 	rect.setPosition(sf::Vector2f(xPos, yPos));
 	rect.setOutlineColor(sf::Color(180, 180, 180, 255));
 	(*window).draw(rect);
+
+	sf::Text text2;
+	text2.setString(containedText);
+	text2.setPosition(sf::Vector2f(150, 420));
+	text2.setCharacterSize(44);
+	text2.setColor(sf::Color(255, 0, 255, 255));
+	text2.setFont(loader.bold_font);
+	(*window).draw(text2);
 
 
 	if (mouseDown) {

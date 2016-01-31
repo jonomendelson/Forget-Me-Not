@@ -13,13 +13,18 @@ class MainMenu {
 	int mouseY = 0;
 	bool mouseDown = false;
 	int framesDisplayed = 0;
+
+	std::string stage = "OUTER";
+
 	Loader loader;
 public:
 	void init(sf::RenderWindow *, Loader);
 	void getInput(int, int, bool, int);
 	void displayFlower();
+	void display();
 	void displayTitles();
-	void displayFirstButtons(int);
+	int displayFirstButtons(int);
+	void processKeystroke(char);
 };
 
 void MainMenu::init(sf::RenderWindow * actualWindow, Loader loaderinput) {
@@ -51,6 +56,32 @@ void MainMenu::displayFlower() {
 	logo.setPosition(sf::Vector2f(95, 0));
 	logo.setColor(sf::Color(255, 255, 255, opacity));
 	(*window).draw(logo);
+}
+
+void MainMenu::display() {
+	if (stage == "OUTER") {
+		displayTitles();
+
+		int result = 0;
+
+		if (framesDisplayed < 575 && framesDisplayed > 490) {
+			int opacity = (framesDisplayed - 490) * 3;
+			result = displayFirstButtons(opacity);
+		}
+		else if (framesDisplayed > 574) {
+			result = displayFirstButtons(255);
+		}
+
+		if (result == 1) {
+			stage = "CREATE_NEW";
+		}
+		else if (result == 2) {
+			stage = "LOAD";
+		}
+	}
+	else if (stage == "CREATE_NEW") {
+		
+	}
 }
 
 void MainMenu::displayTitles() {
@@ -85,21 +116,18 @@ void MainMenu::displayTitles() {
 	menusubtitle.setString("A progess tracker for Alzheimers and Dementia patients. ");
 	menusubtitle.setPosition(sf::Vector2f(225, 100));
 	menusubtitle.setColor(sf::Color(0, 0, 0, menusubtitleopacity));
-	(*window).draw(menusubtitle);
-
-	
-	
+	(*window).draw(menusubtitle);	
 
 }
 
-void MainMenu::displayFirstButtons(int opacity) {
+int MainMenu::displayFirstButtons(int opacity) {
 	sf::RectangleShape rect;
 	rect.setSize(sf::Vector2f(450, 620));
 	if (mouseX > 30 && mouseX < 480 && mouseY > 160 && mouseY < 780) {
 		rect.setFillColor(sf::Color(255, 150, 150, opacity));
 		if (mouseDown) {
 			rect.setFillColor(sf::Color(120, 60, 60, opacity));
-			//create new patient
+			return 1;
 		}
 	}
 	else {
@@ -122,7 +150,7 @@ void MainMenu::displayFirstButtons(int opacity) {
 		rect2.setFillColor(sf::Color(130, 200, 130, opacity));
 		if (mouseDown) {
 			rect2.setFillColor(sf::Color(60, 100, 60, opacity));
-			//load old patient
+			return 2;
 		}
 	}
 	else {
@@ -138,4 +166,9 @@ void MainMenu::displayFirstButtons(int opacity) {
 	text2.setColor(sf::Color(255, 255, 255, opacity));
 	text2.setFont(loader.bold_font);
 	(*window).draw(text2);
+	return 0;
+}
+
+void MainMenu::processKeystroke(char keystroke) {
+	
 }
