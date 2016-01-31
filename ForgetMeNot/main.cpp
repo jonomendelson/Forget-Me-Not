@@ -1,5 +1,5 @@
-#include <SFML\Graphics.hpp>
-#include <Windows.h>
+#include </usr/local/include/SFML/Graphics.hpp>
+//#include <Windows.h>
 #include <iostream>
 
 #include "Game.h"
@@ -22,8 +22,13 @@ MainMenu mainMenu;
 
 void createFrame() {
 	if (stage == "INIT") { //loading stage
+<<<<<<< Updated upstream
 		if (loader.loadResources() != 0) {
 			MessageBox(NULL, L"Forget-Me-Not was not installed correctly, as files are missing.", L"Error.", NULL);
+=======
+		if (loadResources() != 0) {
+			//MessageBox(NULL, L"Forget-Me-Not was not installed correctly, as files are missing.", L"Error.", NULL);
+>>>>>>> Stashed changes
 			exit(0);
 		}
 		else {

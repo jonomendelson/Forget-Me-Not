@@ -1,7 +1,7 @@
 #pragma once
 
-#include <SFML\Graphics.hpp>
-#include <SFML\Window.hpp>
+#include </usr/local/include/SFML/Graphics.hpp>
+//#include <SFML\Window.hpp>
 
 class Game {
 public:
