@@ -5,6 +5,7 @@
 #include <SFML\Audio.hpp>
 
 #include "Loader.h"
+#include "Textbox.h"
 
 class MainMenu {
 	sf::RenderWindow * window;
@@ -46,7 +47,7 @@ void MainMenu::displayFlower() {
 	}
 	sf::Sprite logo;
 	logo.setTexture(loader.logo_large_texture);
-	logo.setScale(1, 1);
+	logo.setScale(1, 1);	
 	logo.setPosition(sf::Vector2f(95, 0));
 	logo.setColor(sf::Color(255, 255, 255, opacity));
 	(*window).draw(logo);
@@ -85,6 +86,10 @@ void MainMenu::displayTitles() {
 	menusubtitle.setPosition(sf::Vector2f(225, 100));
 	menusubtitle.setColor(sf::Color(0, 0, 0, menusubtitleopacity));
 	(*window).draw(menusubtitle);
+
+	
+	
+
 }
 
 void MainMenu::displayFirstButtons(int opacity) {

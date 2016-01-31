@@ -17,9 +17,6 @@ public:
 	sf::SoundBuffer starting_music_buffer;
 	sf::Sound starting_music;
 
-	
-
-
 	int loadResources();
 };
 

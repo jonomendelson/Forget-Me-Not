@@ -6,6 +6,8 @@
 class Game {
 public:
 	Game(sf::RenderWindow *);
+
+	
 };
 
 Game::Game(sf::RenderWindow * window){

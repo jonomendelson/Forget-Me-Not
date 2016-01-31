@@ -6,17 +6,18 @@
 #include "Game.h"
 #include "Loader.h"
 #include "MainMenu.h"
+#include "Textbox.h"
 
 std::string stage = "INIT"; //different stages of program controlled by this variable
 
 int mouseX = 0;
 int mouseY = 0;
 
+Textbox text;
+
 bool mouseDown;
 
 int framesDisplayed = 0; //frame counter
-
-
 
 sf::RenderWindow window(sf::VideoMode(1000, 800), "Forget-Me-Not", sf::Style::Close); //create window, sf::Style::Close means that the window can't be resized
 
@@ -47,6 +48,7 @@ void createFrame() {
 		}
 		else{ //actual menu
 			mainMenu.displayTitles();
+			
 
 			if (framesDisplayed < 575 && framesDisplayed > 490) {
 				int opacity = (framesDisplayed - 490) * 3;
@@ -73,11 +75,13 @@ int main() {
 				mouseX = sf::Mouse::getPosition(window).x;
 				mouseY = sf::Mouse::getPosition(window).y;
 			}
+			if (event.type == sf::Event::TextEntered) {
+				
+				std::cout << static_cast<char>(event.text.unicode);
+			}
 		}
 
 		mouseDown = sf::Mouse::isButtonPressed(sf::Mouse::Left);
-
-		std::cout << "MouseX: " + std::to_string(mouseX) + " Mouse Y: " + std::to_string(mouseY) + "\n";
 
 		sf::Time elapsedSinceLastFrame = frameTimer.getElapsedTime();
 

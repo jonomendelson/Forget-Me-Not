@@ -29,5 +29,11 @@
     <ClInclude Include="Loader.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Textbox.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Question.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
