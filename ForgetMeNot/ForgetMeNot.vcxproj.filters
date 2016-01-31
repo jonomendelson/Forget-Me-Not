@@ -35,5 +35,11 @@
     <ClInclude Include="MultChoice.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Slider.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Patient.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -18,15 +18,12 @@ bool mouseDown;
 
 int framesDisplayed = 0; //frame counter
 
+std::pair<std::string, int> processingStrokes;
+
 sf::RenderWindow window(sf::VideoMode(1000, 800), "Forget-Me-Not", sf::Style::Close); //create window, sf::Style::Close means that the window can't be resized
 
 Loader loader;
 MainMenu mainMenu;
-MultChoice multChoice;
-
-void processKeystroke(char keystroke) {
-	std::cout << "Processing " + keystroke;
-}
 
 void createFrame() {
 	if (stage == "INIT") { //loading stage
@@ -36,27 +33,27 @@ void createFrame() {
 		}
 		else {
 			mainMenu.init(&window, loader);
-			multChoice.init(&window, loader, "What is 5*5?", "25", "15", "10", "5");
 			stage = "MENU";
 		}
 	}
 	else if (stage == "MENU") { //menu stage
-		/*mainMenu.getInput(mouseX, mouseY, mouseDown, framesDisplayed);
+		mainMenu.getInput(mouseX, mouseY, mouseDown, framesDisplayed, processingStrokes);
 
 		if (framesDisplayed == 30) { //triggers starting music
 			loader.starting_music.play();
 		}
 
 		if (framesDisplayed < 340) { //flower start animation
-			//framesDisplayed = 340; //REMOVE THIS LINE LATER (just to skip flower)
+			framesDisplayed = 340; //REMOVE THIS LINE LATER (just to skip flower)
 			mainMenu.displayFlower();
 		}
 		else{ //actual menu
 			mainMenu.display();
-		}*/
-		multChoice.display();
-		multChoice.getInput(mouseX, mouseY, mouseDown, framesDisplayed);
+		}
 	}
+	processingStrokes.first = "";
+	processingStrokes.second = 0;
+	std::cout << "\n";
 }
 
 
@@ -74,7 +71,14 @@ int main() {
 				mouseY = sf::Mouse::getPosition(window).y;
 			}
 			if (event.type == sf::Event::TextEntered) {
-				processKeystroke(static_cast<char>(event.text.unicode));
+				if (event.text.unicode == 8) {
+					processingStrokes.second += 1;
+					std::cout << std::to_string(processingStrokes.second);
+					
+				}
+				else {
+					processingStrokes.first.push_back(static_cast<char>(event.text.unicode));
+				}
 			}
 		}
 
@@ -83,7 +87,7 @@ int main() {
 		sf::Time elapsedSinceLastFrame = frameTimer.getElapsedTime();
 
 		if (elapsedSinceLastFrame.asMilliseconds() > 16) { //60 fps
-			window.clear(sf::Color::White);	
+			window.clear(sf::Color::White);
 			createFrame();
 			window.display();
 

@@ -156,6 +156,8 @@
     <ClInclude Include="Loader.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="MultChoice.h" />
+    <ClInclude Include="Patient.h" />
+    <ClInclude Include="Slider.h" />
     <ClInclude Include="Textbox.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
