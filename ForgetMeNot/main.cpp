@@ -1,4 +1,5 @@
 #include <SFML\Graphics.hpp>
+#include <SFML\Audio.hpp>
 #include <Windows.h>
 #include <iostream>
 
@@ -14,6 +15,8 @@ int mouseY = 0;
 bool mouseDown;
 
 int framesDisplayed = 0; //frame counter
+
+
 
 sf::RenderWindow window(sf::VideoMode(1000, 800), "Forget-Me-Not", sf::Style::Close); //create window, sf::Style::Close means that the window can't be resized
 
@@ -33,74 +36,25 @@ void createFrame() {
 	}
 	else if (stage == "MENU") { //menu stage
 		mainMenu.getInput(mouseX, mouseY, mouseDown, framesDisplayed);
+
+		if (framesDisplayed == 30) { //triggers starting music
+			loader.starting_music.play();
+		}
+
 		if (framesDisplayed < 340) { //flower start animation
+			//framesDisplayed = 340; //REMOVE THIS LINE LATER (just to skip flower)
 			mainMenu.displayFlower();
 		}
-		else { //actual menu
-		/*	int menutitleopacity = 0;
-			int menusubtitleopacity = 0;
+		else{ //actual menu
+			mainMenu.displayTitles();
 
-			if (framesDisplayed > 435) {
-				menutitleopacity = 255;
-			}else if (framesDisplayed > 350) {
-				menutitleopacity = (framesDisplayed - 350) * 3;
+			if (framesDisplayed < 575 && framesDisplayed > 490) {
+				int opacity = (framesDisplayed - 490) * 3;
+				mainMenu.displayFirstButtons(opacity);
 			}
-			
-			if (framesDisplayed > 535) {
-				menusubtitleopacity = 255;
-			}else if (framesDisplayed > 450) {
-				menusubtitleopacity = (framesDisplayed - 450) * 3;
+			else if(framesDisplayed > 574){
+				mainMenu.displayFirstButtons(255);
 			}
-		
-			sf::Text menutitle;
-			menutitle.setFont(bold_font);
-			menutitle.setCharacterSize(75);
-			menutitle.setString("Forget-Me-Not");
-			menutitle.setPosition(sf::Vector2f(280, 10));
-			menutitle.setColor(sf::Color(0, 0, 0, menutitleopacity));
-			window.draw(menutitle);
-
-			sf::Text menusubtitle;
-			menusubtitle.setFont(bold_font);
-			menusubtitle.setCharacterSize(24);
-			menusubtitle.setString("A progess tracker for Alzheimers and Dementia patients. ");
-			menusubtitle.setPosition(sf::Vector2f(220, 100));
-			menusubtitle.setColor(sf::Color(0, 0, 0, menusubtitleopacity));
-			window.draw(menusubtitle);
-
-
-
-			sf::RectangleShape rect;
-			rect.setSize(sf::Vector2f(450, 620));
-			if (mouseX > 30 && mouseX < 480 && mouseY > 160 && mouseY < 780) {
-				rect.setFillColor(sf::Color(255, 150, 150));
-				if (mouseDown) {
-					//madechoice
-				}
-			}
-			else {
-				rect.setFillColor(sf::Color(255, 120, 120));
-			}
-			rect.setPosition(sf::Vector2f(30, 160));
-			window.draw(rect);
-
-			sf::RectangleShape rect2;
-			rect2.setSize(sf::Vector2f(450, 620));
-			if (mouseX > 515 && mouseX < 965 && mouseY > 160 && mouseY < 780) {
-				rect2.setFillColor(sf::Color(130, 200, 130));
-				if (mouseDown) {
-					//madechoice
-				}
-			}
-			else {
-				rect2.setFillColor(sf::Color(100, 200, 100));
-			}
-			rect2.setPosition(sf::Vector2f(515, 160));
-			window.draw(rect2);
-
-			
-
-			//do buttons and shit*/
 		}
 	}
 }
