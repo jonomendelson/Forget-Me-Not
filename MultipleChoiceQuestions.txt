@@ -7,40 +7,17 @@
 [“How many animals are there in the Chinese zodiac?”, “12”, “8”, “10”, “14”]
 [“What falling object is said to have inspired Isaac Newton’s theories about gravity?”, “Apple”, “Pineapple”, “Coconut”, “Cactus”]
 [“Where in the world does the largest tropical rainforest grow?”, “Amazon”, “Antarctica”, “China”, “Saudi Arabia”]
-[“Which logo on a flag identifies a ship’s crew as pirates?”, “Skull and Crossbones”, “Red and Black Stripes”, “”, “”]
-[“”, “”, “”, “”, “”]
-[“”, “”, “”, “”, “”]
-[“”, “”, “”, “”, “”]
-[“”, “”, “”, “”, “”]
-[“”, “”, “”, “”, “”]
-[“”, “”, “”, “”, “”]
-[“”, “”, “”, “”, “”]
-[“”, “”, “”, “”, “”]
-[“”, “”, “”, “”, “”]
-[“”, “”, “”, “”, “”]  
-	20.	Which logo on a flag identifies a ship’s crew as pirates? 
-	21.	In which country do the famous pyramids of Giza stand? 
-	22.	In which country is Stonehenge located? 
-	23.	In which country is the Leaning Tower of Pisa? 
-	24.	Who discovered the New World? 
-	25.	How many planets are there in our solar system? 
-	26.	
-	27.	
-	28.	
-	29.	
-	30.	
-	31.	
-	32.	How many wheels does a car have? 
-	33.	Which is not in Europe? 
-	1.	Chicago 
-	2.	Spain 
-	3.	Pompeii 
-	4.	Paris 
-	34.	Who lived longest ago? 
-	1.	George Washington 
-	2.	Queen Elizabeth II 
-	3.	Tom Hanks 
-	4.	Paul McCartney 
+[“Which logo on a flag identifies a ship’s crew as pirates?”, “Skull and Crossbones”, “Red and Black Stripes”, “Blank White”, “Red Maple Leaf”]
+[“In which country do the famous pyramids of Giza stand?”, “Egypt”, “Kuwait”, “Nigeria”, “Morocco”]
+[“In which country is Stonehenge located?”, “United Kingdom”, “United States”, “France”, “Portugal”]
+[“In which country is the Leaning Tower of Pisa?”, “Italy”, “Germany”, “France”, “Spain”]
+[“Who discovered the New World?”, “Christopher Columbus”, “Isaac Newton”, “Bob Hope”, “Robin Williams”]
+[“How many wheels does a car have?”, “4”, “1”, “3”, “5”]
+[“Which is not in Europe?”, “Chicago”, “Spain”, “Pompeii”, “”Paris]
+[“How many wheels does a car have?”, “4”, “1”, “3”, “5”]
+[“Who lived longest ago?”, “Queen Elizabeth”, “George Washington”, “Tom Hanks”, “Paul McCartney”]
+[“”, “”, “”, “”, “”] 
+ 
 	35.	Which tends to be the coldest? 
 	1.	Rainforest 
 	2.	Desert 
