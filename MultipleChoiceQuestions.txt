@@ -16,20 +16,4 @@
 [“Which is not in Europe?”, “Chicago”, “Spain”, “Pompeii”, “”Paris]
 [“How many wheels does a car have?”, “4”, “1”, “3”, “5”]
 [“Who lived longest ago?”, “Queen Elizabeth”, “George Washington”, “Tom Hanks”, “Paul McCartney”]
-[“”, “”, “”, “”, “”] 
- 
-	35.	Which tends to be the coldest? 
-	1.	Rainforest 
-	2.	Desert 
-	3.	Arctic tundra 
-	4.	Beach 
-	36.	Which is not a fruit? 
-	1.	Apple 
-	2.	Banana 
-	3.	Orange 
-	4.	Potato 
-	37.	How many fingers does each person have per hand?  
-	1.	1 
-	2.	4 
-	3.	5 
-	4.	10 
+[“Which tends to be the coldest?”, “Arctic tundra”, “Rainforest”, “Desert”, “Beach”] [“Which is not a fruit?”, “Potato”, “Apple”, “Orange”, “Banana”] [“How many fingers does each person have per hand?”, “5”, “1”, “4”, “10”] 
