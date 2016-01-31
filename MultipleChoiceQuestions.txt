@@ -5,6 +5,9 @@
 [“What language is most spoken in Mexico?“, “Spanish”, “Russian”, “English”, “Japanese”] [“The American Civil War was fought between?“, “U.S. North and U.S. South”, “Allies and Axis”, “Iraq and Iran”, “Britain and the United States”] [“What planet is closest to the sun?“, “Mercury”, “Pluto”, “Earth”, “The Moon”] [“Who first walked on the moon?“, “Neil Armstrong”, “Buzz Lightyear”, “Buzz Aldrin”, “Neil DeGrasse Tyson”]
 [“In which city is the Empire State Building located?, “New York”, “London”, “St. George”, “Chicago”] [“How many innings are there in a baseball game?”, “9”, “5”, “7”, “10”]
 [“How many animals are there in the Chinese zodiac?”, “12”, “8”, “10”, “14”]
+[“What falling object is said to have inspired Isaac Newton’s theories about gravity?”, “Apple”, “Pineapple”, “Coconut”, “Cactus”]
+[“Where in the world does the largest tropical rainforest grow?”, “Amazon”, “Antarctica”, “China”, “Saudi Arabia”]
+[“Which logo on a flag identifies a ship’s crew as pirates?”, “Skull and Crossbones”, “Red and Black Stripes”, “”, “”]
 [“”, “”, “”, “”, “”]
 [“”, “”, “”, “”, “”]
 [“”, “”, “”, “”, “”]
@@ -14,12 +17,7 @@
 [“”, “”, “”, “”, “”]
 [“”, “”, “”, “”, “”]
 [“”, “”, “”, “”, “”]
-[“”, “”, “”, “”, “”]
-[“”, “”, “”, “”, “”]
-[“”, “”, “”, “”, “”]
-[“”, “”, “”, “”, “”] 
-	18.	What falling object is said to have inspired Isaac Newton’s theories about gravity? 
-	19.	Where in the world does the largest tropical rainforest grow? 
+[“”, “”, “”, “”, “”]  
 	20.	Which logo on a flag identifies a ship’s crew as pirates? 
 	21.	In which country do the famous pyramids of Giza stand? 
 	22.	In which country is Stonehenge located? 
