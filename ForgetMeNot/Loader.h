@@ -2,7 +2,6 @@
 
 #include <SFML\Graphics.hpp>
 #include <SFML\Window.hpp>
-#include <SFML\Audio.hpp>
 
 class Loader {
 public:
@@ -13,12 +12,6 @@ public:
 	sf::Font bold_font;
 
 	sf::Sprite logo_large;
-
-	sf::SoundBuffer starting_music_buffer;
-	sf::Sound starting_music;
-
-	
-
 
 	int loadResources();
 };
@@ -36,12 +29,5 @@ int Loader::loadResources() {
 	if (!bold_font.loadFromFile("bold_font.ttf")) {
 		return -1;
 	}
-	if (!starting_music_buffer.loadFromFile("opening_music.wav")) {
-		return -1;
-	}
-	else {
-		starting_music.setBuffer(starting_music_buffer);
-	}
-
 	return 0;
 }
