@@ -29,18 +29,22 @@ class MainMenu {
 	Slider levelofalzSlider;
 
 	Loader loader;
-
 	Patient currPatient;
 public:
 	void init(sf::RenderWindow *, Loader);
 	void getInput(int, int, bool, int, std::pair<std::string, int>);
 	void displayFlower();
-	void display();
+	int display();
 	void displayTitles();
 	int displayFirstButtons(int);
 	void displayPatientForm();
 	void displayFamilyForm();
+	Patient getPatient();
 };
+
+Patient MainMenu::getPatient() {
+	return currPatient;
+}
 
 void MainMenu::init(sf::RenderWindow * actualWindow, Loader loaderinput) {
 	window = actualWindow;
@@ -74,8 +78,7 @@ void MainMenu::displayFlower() {
 	(*window).draw(logo);
 }
 
-void MainMenu::display() {
-	std::cout << processingStrokes.first;
+int MainMenu::display() {
 	if (stage == "OUTER") {
 		displayTitles();
 		
@@ -88,8 +91,6 @@ void MainMenu::display() {
 		else if (framesDisplayed > 574) {
 			result = displayFirstButtons(255);
 		}
-
-		result = 1;
 
 		if (result == 1) {
 			firstNameTextbox.init(window, loader, 250, 100);
@@ -110,7 +111,11 @@ void MainMenu::display() {
 	else if (stage == "IMPORT_FAMILY") {
 		displayFamilyForm();
 	}
+	else if (stage == "DONE") {
+		return 1;
+	}
 	processingStrokes.first = "";
+	return 0;
 }
 
 void MainMenu::displayTitles() {
@@ -297,7 +302,6 @@ void MainMenu::displayPatientForm() {
 	nextText.setFont(loader.regular_font);
 	(*window).draw(nextText);
 
-	stage = "IMPORT_FAMILY"; //delete
 }
 
 void MainMenu::displayFamilyForm() {
@@ -345,11 +349,9 @@ void MainMenu::displayFamilyForm() {
 		browseButton.setFillColor(sf::Color(255, 150, 150, 255));
 		if (mouseDown) {
 			browseButton.setFillColor(sf::Color(120, 60, 60, 255));
-			if (firstNameTextbox.containedText != "" && lastNameTextbox.containedText != "" && ageTextbox.containedText != "" && birthdayTextbox.containedText != "" && carepersonemailTextbox.containedText != "") {
-				currPatient.createPatient(firstNameTextbox.containedText, lastNameTextbox.containedText, std::stoi(ageTextbox.containedText), birthdayTextbox.containedText, carepersonemailTextbox.containedText, levelofalzSlider.number);
-				firstNameTextbox.containedText = "";
-				lastNameTextbox.containedText = "";
-				stage = "IMPORT_FAMILY";
+			if (firstNameTextbox.containedText != "" && lastNameTextbox.containedText != ""){
+				system("ForgetMeNot-Helper.exe \"openImage\" \"image\"");
+				currPatient.addFamilyMember(firstNameTextbox.containedText, lastNameTextbox.containedText, "");
 			}
 		}
 	}
@@ -367,20 +369,15 @@ void MainMenu::displayFamilyForm() {
 	browseText.setFont(loader.regular_font);
 	(*window).draw(browseText);
 
-
-
-
 	sf::RectangleShape nextButton;
 	nextButton.setSize(sf::Vector2f(200, 40));
 	if (mouseX > 700 && mouseX < 900 && mouseY > 700 && mouseY < 740) {
 		nextButton.setFillColor(sf::Color(255, 150, 150, 255));
 		if (mouseDown) {
 			nextButton.setFillColor(sf::Color(120, 60, 60, 255));
-			if (firstNameTextbox.containedText != "" && lastNameTextbox.containedText != "" && ageTextbox.containedText != "" && birthdayTextbox.containedText != "" && carepersonemailTextbox.containedText != "") {
-				currPatient.createPatient(firstNameTextbox.containedText, lastNameTextbox.containedText, std::stoi(ageTextbox.containedText), birthdayTextbox.containedText, carepersonemailTextbox.containedText, levelofalzSlider.number);
+			if (firstNameTextbox.containedText != "" && lastNameTextbox.containedText != "") {
 				firstNameTextbox.containedText = "";
 				lastNameTextbox.containedText = "";
-				stage = "IMPORT_FAMILY";
 			}
 		}
 	}
@@ -397,6 +394,29 @@ void MainMenu::displayFamilyForm() {
 	nextText.setColor(sf::Color(255, 255, 255, 255));
 	nextText.setFont(loader.regular_font);
 	(*window).draw(nextText);
+
+	sf::RectangleShape doneButton;
+	doneButton.setSize(sf::Vector2f(200, 60));
+	if (mouseX > 400 && mouseX < 600 && mouseY > 700 && mouseY < 760) {
+		doneButton.setFillColor(sf::Color(255, 150, 150, 255));
+		if (mouseDown) {
+			doneButton.setFillColor(sf::Color(120, 60, 60, 255));
+			stage = "DONE";
+		}
+	}
+	else {
+		doneButton.setFillColor(sf::Color(255, 120, 120, 255));
+	}
+	doneButton.setPosition(sf::Vector2f(400, 700));
+	(*window).draw(doneButton);
+
+	sf::Text doneText;
+	doneText.setString("Done");
+	doneText.setPosition(sf::Vector2f(405, 700));
+	doneText.setCharacterSize(48);
+	doneText.setColor(sf::Color(255, 255, 255, 255));
+	doneText.setFont(loader.regular_font);
+	(*window).draw(doneText);
 
 
 }

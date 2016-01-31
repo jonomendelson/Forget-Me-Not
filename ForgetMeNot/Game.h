@@ -4,15 +4,13 @@
 #include <SFML\Window.hpp>
 
 class Game {
+	sf::RenderWindow * window;
 public:
-	Game(sf::RenderWindow *);
+	void init(sf::RenderWindow *, Loader);
 
 	
 };
 
-Game::Game(sf::RenderWindow * window){
-	sf::RectangleShape rect;
-	rect.setFillColor(sf::Color::Red);
-	rect.setSize(sf::Vector2f(50, 50));
-	(*window).draw(rect);
+void Game::init(sf::RenderWindow * wind, Loader load) {
+	window = wind;
 }
