@@ -1,6 +1,11 @@
 # Forget-Me-Not
 
-A program that stimulates and tracks the progress of patients with Alzheimers by routinely administering tests and memory games.
+A program that stimulates and tracks the progress of patients with Alzheimers by routinely administering tests and memory games chosen to specifically test common markers of Alzheimers.
+
+The program allows the caretaker to register the patient and save the patients progress as a file, allowing the caretaker to administer later tests to the patient without losing previous progress. If the patient's progress slips suddenly, the caretaker is notified via email.
+
+We created Forget-Me-Not in C++, C#, and SFML.
+
 Won 1st prize at HackTrin III. 
 
 Created by Jonathan Mendelson, Michael Caosun, Jake Sanders, and Teddy Rashkover.
