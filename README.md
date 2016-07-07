@@ -1,6 +1,6 @@
 # Forget-Me-Not
 
-Won 1st prize at HackTrin III.
+Won 1st prize at HackTrin III (2015).
 
 A program that stimulates and tracks the progress of patients with Alzheimers by routinely administering tests and memory games chosen to specifically test common markers of Alzheimers. Often, it is difficult for caretakers to tell if their patient's condition is deteriorating - our application allows caretakers to easily test multiple patients at a time and clearly view their progress.
 
